@@ -59,10 +59,12 @@ public class Hangman {
         WordReader wordReader = new WordReader();
         UserInput userInput = new UserInput();
 
+
         char userLetter = userInput.getLetterFromUser();
         System.out.println("Letter: " + userLetter);
 
-        userInput.closeScanner();
+        UserCharacterChecker userCharacterChecker = new UserCharacterChecker(wordReader.returnRandomWord());
+        char[] usersGuesses = userCharacterChecker.getGuessedWordChars();
 
     }
 }
