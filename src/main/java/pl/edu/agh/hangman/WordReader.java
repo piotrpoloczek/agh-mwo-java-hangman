@@ -7,4 +7,6 @@ public class WordReader {
     public char[] returnRandomWord(){
         return new char[]{'y', 'z'};
     }
+
+
 }
