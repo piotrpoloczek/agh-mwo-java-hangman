@@ -1,6 +1,7 @@
 package pl.edu.agh.hangman;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class UserCharacterChecker {
 
@@ -47,5 +48,24 @@ public class UserCharacterChecker {
         return this.guessedWordChars;
     }
 
+    public boolean checkIfWordIsGuessed(){
+        if(Arrays.equals(this.guessedWordChars, this.finalWordChars)){
+            return true;
+        }
+        return false;
+    }
 
+    public int getNumberOfWrongGuesses(){
+        return this.userGuessList.size() - this.getNumberOfRightGuesses();
+    }
+
+    private int getNumberOfRightGuesses(){
+        int countGuesses = 0;
+        for(int i = 0; i < this.guessedWordChars.length; i++){
+            if(this.guessedWordChars[i] != '\u0000'){
+                countGuesses++;
+            }
+        }
+        return countGuesses;
+    }
 }

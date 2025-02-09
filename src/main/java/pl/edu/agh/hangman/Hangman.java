@@ -58,13 +58,11 @@ public class Hangman {
 
         WordReader wordReader = new WordReader();
         UserInput userInput = new UserInput();
+        UserCharacterChecker userCharacterChecker = new UserCharacterChecker(new char[] {'a', 'b', 'c', 'd'});
 
 
-        char userLetter = userInput.getLetterFromUser();
-        System.out.println("Letter: " + userLetter);
-
-        UserCharacterChecker userCharacterChecker = new UserCharacterChecker(wordReader.returnRandomWord());
-        char[] usersGuesses = userCharacterChecker.getGuessedWordChars();
+        Game game = new Game(wordReader, userInput, userCharacterChecker);
+        game.play();
 
     }
 }
